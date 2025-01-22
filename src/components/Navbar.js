@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav className="navbar">
-    <Link to="/">Home</Link>
-    <Link to="/chat">General Chat</Link>
-    <Link to="/login">Login</Link>
-    <Link to="/register">Register</Link>
+    <Link className='section' to="/">Home</Link>
+    <Link className='section' to="/chat">General Chat</Link>
+    <Link className='section' to="/login">Login</Link>
+    <Link className='section' to="/register">Register</Link>
   </nav>
 );
 

@@ -13,8 +13,9 @@ import './App.css'
 function App() {
   return (
     //<AuthProvider>
+    <div>
+      
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<Chat />} />
@@ -22,7 +23,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Navbar />
+        <div>
+          <Chat />
+          <PrivateChat />
+        </div>
       </Router>
+    </div>
     //</AuthProvider>
   );
 }
