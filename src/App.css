@@ -23,6 +23,7 @@ body {
 .head{
   display: flex;
   flex-direction: column;
+  background-color: #F0E2C1;
 }
 
 .navbar {
@@ -44,4 +45,37 @@ body {
 
 .section:hover {
   border-style:double;
+}
+
+.homepage_distribution {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.general_chat {
+  flex: 1 1 400px;
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 350px;
+  border-width: 5px;
+  border-color: black;
+  border-style:ridge;
+}
+
+.private_chat {
+  flex: 1 1 400px;
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 350px;
+  border-width: 5px;
+  border-color: black;
+  border-style:ridge;
+}
+
+.contact {
+  flex: 1 1 150px;
+  max-width: 100%;
+  min-width: 100px;
+  min-height: 350px;
+
 }

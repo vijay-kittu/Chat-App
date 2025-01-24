@@ -12,7 +12,7 @@ const Chat = () => {
   };
 
   return (
-    <div>
+    <div className='general_chat'>
       <h1>General Chat Room</h1>
       <div className="chat-box">
         {messages.map((msg, index) => (

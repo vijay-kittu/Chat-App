@@ -7,6 +7,8 @@ import PrivateChat from './components/PrivateChat';
 import Register from './components/Register';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
+import Contact from './components/Contact';
+
 import './App.css'
 //import { AuthProvider } from './context/AuthContext';
 
@@ -24,9 +26,10 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
         <Navbar />
-        <div>
+        <div className='homepage_distribution'>
           <Chat />
           <PrivateChat />
+          <Contact />
         </div>
       </Router>
     </div>
