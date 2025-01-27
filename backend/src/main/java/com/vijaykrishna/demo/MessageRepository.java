@@ -1,4 +1,7 @@
 package com.vijaykrishna.demo;
 
-public interface Repository {
+import com.vijaykrishna.demo.Message;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MessageRepository extends JpaRepository<Message, Long> {
 }
