@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Chat from './components/Chat';
 import PrivateChat from './components/PrivateChat';
@@ -16,21 +16,21 @@ function App() {
   return (
     //<AuthProvider>
     <div>
-      
+      <Home />
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to= "/login" />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/private-chat/:userId" element={<PrivateChat />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-        <Navbar />
-        <div className='homepage_distribution'>
+        {/*<Navbar />*/}
+        {/*<div className='homepage_distribution'>
           <Chat />
           <PrivateChat />
           <Contact />
-        </div>
+        </div>*/}
       </Router>
     </div>
     //</AuthProvider>

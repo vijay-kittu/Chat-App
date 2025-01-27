@@ -72,6 +72,15 @@ body {
   border-style:ridge;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact {
   flex: 1 1 150px;
   max-width: 100%;
