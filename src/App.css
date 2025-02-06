@@ -55,7 +55,7 @@ body {
 .general_chat {
   flex: 1 1 400px;
   max-width: 100%;
-  min-width: 301px;
+  min-width: 300px;
   min-height: 350px;
   border-width: 5px;
   border-color: black;
