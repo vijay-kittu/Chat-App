@@ -37,7 +37,7 @@ export default Login;
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-
+import Contact from './Contact';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -92,6 +92,7 @@ const Login = () => {
       <button onClick={handleLogin}>Login</button>
 
       <Link to="/register">Don't have an account? Register here!</Link>
+      <Contact />
     </div>
   );
 };

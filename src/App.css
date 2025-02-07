@@ -82,9 +82,10 @@ body {
 }
 
 .contact {
+  display: flex;
   flex: 1 1 150px;
   max-width: 100%;
   min-width: 100px;
   min-height: 350px;
-
+  margin-top: 20px;
 }

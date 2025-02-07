@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Contact from './Contact';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -24,6 +25,7 @@ const Register = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleRegister}>Register</button>
+      <Contact />
     </div>
   );
 };
