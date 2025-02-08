@@ -3,38 +3,6 @@ import Contact from './Contact';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-/*const Register = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleRegister = () => {
-    console.log('Registering:', username, password);
-  };
-
-  return (
-    <div className='register'>
-      <h1>Register</h1>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      <Contact />
-    </div>
-  );
-};
-
-export default Register;
-*/
-
 const Register = () => {
   const [formData, setFormData] = useState({
     userName: "",
@@ -51,29 +19,6 @@ const Register = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
-  /*const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
-
-    try {
-      const response = await fetch("http://localhost:8080/api/users/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.text();
-
-      if (!response.ok) {
-        setMessage(data);
-      } else {
-        setMessage("Registration successful!");
-      }
-    } catch (error) {
-      setMessage("Server error! Try again later.");
-    }
-  };*/
 
   const handleSubmit = async (event) => {
     event.preventDefault();

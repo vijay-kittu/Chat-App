@@ -1,44 +1,9 @@
-/*import React, { useState } from 'react';
-import {Link} from 'react-router-dom'; 
-
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showRegister, setShowRegister] = useState(false);
-
-  const handleLogin = () => {
-    console.log('Logging in:', username, password);
-  };
-
-  return (
-    <div className='login'>
-      <h1>Login</h1>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-
-      <Link to="/register">Don't have an account? Register here!</Link>
-    </div>
-  );
-};
-
-export default Login;
-*/
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import Contact from './Contact';
-const Login = () => {
+import axios from 'axios';
+
+/*const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -89,6 +54,7 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      
       <button onClick={handleLogin}>Login</button>
 
       <Link to="/register">Don't have an account? Register here!</Link>
@@ -96,5 +62,23 @@ const Login = () => {
     </div>
   );
 };
+
+export default Login;*/
+
+const Login = () => {
+  const [loginData, setLoginData] = useState({
+    userName:"",
+    password:""
+  });
+
+  const handleChange = (event) => {
+    setLoginData({...loginData, [event.target.name] : event.target.value});
+  };
+
+  const response = await axios.get("http://localhost:8080/api/users/get/{userName}");
+
+
+  
+}
 
 export default Login;
