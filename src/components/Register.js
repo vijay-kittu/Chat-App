@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Contact from './Contact';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 /*const Register = () => {
   const [username, setUsername] = useState('');
@@ -40,16 +42,17 @@ const Register = () => {
     firstName: "",
     lastName: "",
     age: "",
-    email: "",
+    email: ""
   });
 
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  /*const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
 
@@ -70,6 +73,25 @@ const Register = () => {
     } catch (error) {
       setMessage("Server error! Try again later.");
     }
+  };*/
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setMessage("");
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/users/register", formData);
+
+      console.log("User added:", response.data);
+      setMessage("Registration successful!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+    }
+    catch (error) {
+      console.error("Error adding user:", error);
+      setMessage("Server error! Try again later.");
+    }
   };
 
   return (
@@ -85,6 +107,8 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
       {message && <p style={{ color: message === "Registration successful!" ? "green" : "red" }}>{message}</p>}
+
+      <Contact />
     </div>
   );
 };

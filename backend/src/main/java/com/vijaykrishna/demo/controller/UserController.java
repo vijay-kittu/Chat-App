@@ -1,5 +1,6 @@
 package com.vijaykrishna.demo.controller;
 
+import com.vijaykrishna.demo.dao.UserRepository;
 import com.vijaykrishna.demo.entity.User;
 import com.vijaykrishna.demo.service.UserService;
 import jakarta.validation.Valid;
@@ -13,15 +14,13 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody User user) {
-        try {
-            User savedUser = userService.registerUser(user);
-            return ResponseEntity.ok(savedUser);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+    public User registerUser(@Valid @RequestBody User user) {
+        {
+            User dbUser = userRepository.save(user);
+            return dbUser;
         }
     }
 }
