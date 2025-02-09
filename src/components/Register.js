@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Contact from './Contact';
+import Redirecting from './Redirecting';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,6 +30,7 @@ const Register = () => {
 
       console.log("User added:", response.data);
       setMessage("Registration successful!");
+      <Redirecting />
       setTimeout(() => {
         navigate("/login");
       }, 1000);
