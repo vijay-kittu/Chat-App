@@ -14,7 +14,7 @@ const Register = () => {
     email: ""
   });
 
-  const [message, setMessage] = useState("");
+  const [registerMessage, setRegisterMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -23,13 +23,13 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setMessage("");
+    setRegisterMessage("");
 
     try {
       const response = await axios.post("http://localhost:8080/api/users/register", formData);
 
       console.log("User added:", response.data);
-      setMessage("Registration successful!");
+      setRegisterMessage("Registration successful!");
       <Redirecting />
       setTimeout(() => {
         navigate("/login");
@@ -37,7 +37,7 @@ const Register = () => {
     }
     catch (error) {
       console.error("Error adding user:", error);
-      setMessage("Server error! Try again later.");
+      setRegisterMessage("Server error! Try again later.");
     }
   };
 
@@ -53,7 +53,7 @@ const Register = () => {
         <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
         <button type="submit">Register</button>
       </form>
-      {message && <p style={{ color: message === "Registration successful!" ? "green" : "red" }}>{message}</p>}
+      {registerMessage && <p style={{ color: registerMessage === "Registration successful!" ? "green" : "red" }}>{registerMessage}</p>}
 
       <Contact />
     </div>

@@ -83,6 +83,7 @@ body {
 
 .contact {
   display: flex;
+  flex-direction:column;
   flex: 1 1 150px;
   max-width: 100%;
   min-width: 100px;
