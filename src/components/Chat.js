@@ -7,6 +7,7 @@ const Chat = () => {
   const [user, setUser] = useState({ id: 1, name: 'John Doe', avatar: 'https://via.placeholder.com/40' }); // Replace with actual user data
 
   // Fetch messages from the Spring Boot backend
+  /*
   useEffect(() => {
     const fetchMessages = async () => {
       try {
@@ -34,12 +35,30 @@ const Chat = () => {
       }
     }
   };
+  */
+
+  const handleMessages = () => {
+      setMessages([...messages, input])
+  }
+
+  const handleInput = async(event) => {
+  
+    setInput(event.target.value);
+    
+    try{
+      const response = await axios.post("", input);
+    }
+    catch(error){
+      console.error("Error sending message:", error);
+
+    }
+  }
 
   return (
     <div className='general_chat'>
       <h1>General Chat Room</h1>
       <div className="chat-box" style={{ border: '1px solid #ccc', padding: '10px', height: '400px', overflowY: 'scroll' }}>
-        {messages.map((msg, index) => (
+        {/*{messages.map((msg, index) => (
           <div key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <img src={msg.avatar} alt={`${msg.name}'s avatar`} style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
             <div>
@@ -47,17 +66,20 @@ const Chat = () => {
               <p>{msg.text}</p>
             </div>
           </div>
-        ))}
+        ))}*/}
+        {messages.map((input) => {
+          return <div>{input}</div>
+        })}
       </div>
       <div className='bottom'>
         <input
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={handleInput}
           placeholder="Type a message..."
           style={{ width: '80%', padding: '10px', marginRight: '10px' }}
         />
-        <button onClick={sendMessage} style={{ padding: '10px 20px' }}>Send</button>
+        <button onClick={handleMessages} style={{ padding: '10px 20px' }}>Send</button>
       </div>
     </div>
   );
