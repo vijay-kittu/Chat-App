@@ -90,3 +90,8 @@ body {
   min-height: 350px;
   margin-top: 20px;
 }
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+}

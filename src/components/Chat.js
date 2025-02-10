@@ -49,7 +49,7 @@ const Chat = () => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '10px' }}>
+      <div className='bottom'>
         <input
           type="text"
           value={input}

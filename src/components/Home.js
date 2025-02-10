@@ -14,8 +14,9 @@ const Home = () => (
     <div className="homepage_distribution">
       <Chat />
       <PrivateChat />
-      <Contact />
+      
     </div>
+    <Contact />
   </div>
 );
 
