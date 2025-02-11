@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Chat = () => {
+const Chat = ({userName}) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [user, setUser] = useState({ id: 1, name: 'John Doe', avatar: 'https://via.placeholder.com/40' }); // Replace with actual user data
-
   // Fetch messages from the Spring Boot backend
   /*
   useEffect(() => {
@@ -37,22 +35,39 @@ const Chat = () => {
   };
   */
 
-  const handleMessages = () => {
+  /*const handleMessages = () => {
       setMessages([...messages, input])
+  }*/
+
+  const fetchMessages = async() => {
+    try{
+      const response = await axios.get("http://localhost:8080/api/messages/get");
+      setMessages(response.messages);
+    }
+    catch(error){
+      console.error("Error fetching messages: ", error);
+    }
   }
 
-  const handleInput = async(event) => {
+  const postInput = async(event) => {
+
+    if (!input.trim()) return;
   
     setInput(event.target.value);
     
     try{
-      const response = await axios.post("", input);
+      const response = await axios.post("http://localhost:8080/api/messages/send", {userName: userName, message:input});
+      setMessages([...messages, input]);
+      setInput("");
     }
     catch(error){
       console.error("Error sending message:", error);
-
     }
   }
+
+  useEffect(() => {
+    fetchMessages(); // 👈 Fetch messages when the component mounts
+  }, []);
 
   return (
     <div className='general_chat'>
@@ -67,19 +82,25 @@ const Chat = () => {
             </div>
           </div>
         ))}*/}
-        {messages.map((input) => {
-          return <div>{input}</div>
+        {messages.map((msg, index) => {
+          return(
+            <div key={index} className='message' >
+              <strong>{msg.userName}:</strong> {msg.message} <br />
+              <span className='timestamp' >{new Date(msg.timestamp).toLocaleString()}</span>
+            </div>
+          )
         })}
+
       </div>
-      <div className='bottom'>
+      <div className='chat-input'>
         <input
           type="text"
-          value={input}
-          onChange={handleInput}
+          /*value={input}
+          onChange={postInput}*/
           placeholder="Type a message..."
           style={{ width: '80%', padding: '10px', marginRight: '10px' }}
         />
-        <button onClick={handleMessages} style={{ padding: '10px 20px' }}>Send</button>
+        <button onClick={postInput} style={{ padding: '10px 20px' }}>Send</button>
       </div>
     </div>
   );

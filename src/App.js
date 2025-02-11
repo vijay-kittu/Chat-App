@@ -23,7 +23,7 @@ function App() {
           <Route path="/private-chat/:userId" element={<PrivateChat />} />
           <Route path="/register" element={<Register />} />
           <Route path="/redirecting" element={<Redirecting />} />
-          <Route path="/login" element={<Login  />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>
