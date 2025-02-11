@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './components/AuthContext';
 import Home from './components/Home';
 import Chat from './components/Chat';
 import PrivateChat from './components/PrivateChat';
 import Register from './components/Register';
 import Login from './components/Login';
-import Navbar from './components/Navbar';
-import Contact from './components/Contact';
 import Redirecting from './components/Redirecting';
 import './App.css'
 
 function App() {
   
   return (
-    /*<AuthProvider>*/
+    <AuthProvider>
     <div>
       <Router>
         <Routes>
@@ -28,7 +27,7 @@ function App() {
         </Routes>
       </Router>
     </div>
-    /*</AuthProvider>*/
+    </AuthProvider>
   );
 }
 

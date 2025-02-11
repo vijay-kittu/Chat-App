@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import Contact from './Contact';
 import axios from 'axios';
+import { AuthContext } from './AuthContext'; 
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -10,6 +11,7 @@ const Login = () => {
   });
   const [loginMessage, setLoginMessage] = useState("");
   const navigate = useNavigate();
+  const {setUser} = useContext(AuthContext);
   
 
   /*const handleChange = (event) => {
@@ -63,6 +65,7 @@ const Login = () => {
     try {
       const response = await axios.post("http://localhost:8080/api/users/login", loginData);
       if (response.status === 200) {
+        setUser({ userName : loginData.userName });
         setLoginMessage("Login successful!");
         /*<Redirecting />*/
         setTimeout(() => {
