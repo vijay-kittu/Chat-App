@@ -1,5 +1,6 @@
 package com.vijaykrishna.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,8 @@ public class Message {
     private String userName;
 
     @Column(name = "timestamp", nullable = false, updatable = false)
-private LocalDateTime timeStamp;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime timeStamp;
 
     @Column(name = "message")
     private String message;
@@ -48,12 +50,12 @@ private LocalDateTime timeStamp;
         this.userName = userName;
     }
 
-    public LocalDateTime getDateTime() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.timeStamp = dateTime;
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public String getMessage() {
@@ -69,7 +71,7 @@ private LocalDateTime timeStamp;
         return "Message{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", dateTime=" + timeStamp +
+                ", timeStamp=" + timeStamp +
                 ", message='" + message + '\'' +
                 '}';
     }
