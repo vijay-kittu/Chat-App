@@ -11,30 +11,7 @@ const Login = () => {
   });
   const [loginMessage, setLoginMessage] = useState("");
   const navigate = useNavigate();
-  const {login} = useAuth();  
-
-  /*const handleChange = (event) => {
-    setLoginData({...loginData, [event.target.name] : event.target.value});
-  };
-
-  /*const response = axios.get("http://localhost:8080/api/users/get/{userName}");
-  const handleSubmit = async(event) => {
-    event.preventDefault();
-    setMessage("");
-    try {
-      const response = axios.get("http://localhost:8080/api/users/get/{userName}", formData);
-      return (await response).data;
-      setMessage("Login successful!");
-      <Redirecting />
-      setTimeout(() => {
-        navigate("/home");
-      }, 1000);
-    }
-    catch (error) {
-      console.error("Incorrect username or password! Please try again.");
-      setMessage("Incorrect username or password! Try again later.");
-    }
-  }*/
+  const {login} = useAuth();
 
   const checkUserExists = async() => {
     try{
@@ -55,8 +32,7 @@ const Login = () => {
     event.preventDefault();
     setLoginMessage("");
 
-    /*const userExists = await checkUserExists();*/
-    if(!checkUserExists){
+    if(!checkUserExists()){
       setLoginMessage("Username does not exist.");
       return;
     }
@@ -66,11 +42,9 @@ const Login = () => {
       if (response.status === 200) {
         login({ userName: loginData.userName });
         setLoginMessage("Login successful!");
-        /*<Redirecting />*/
         setTimeout(() => {
           navigate("/redirecting");
         }, 500);
-        // Redirect to dashboard or home
       }
     }
     catch (error) {
