@@ -14,7 +14,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "username")
+    @Column(name="username")
     private String userName;
 
     @Column(name = "timestamp", nullable = false, updatable = false)

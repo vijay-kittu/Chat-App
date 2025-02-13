@@ -5,7 +5,7 @@ import axios from 'axios';
 const Chat = ({userName}) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
- 
+  
   const fetchMessages = async() => {
     try{
       const response = await axios.get("http://localhost:8080/api/messages/get");
@@ -16,19 +16,23 @@ const Chat = ({userName}) => {
     }
   }
 
+  const handleInput = (event) => {
+    setInput(event.target.value);
+  }
+
   const postInput = async(event) => {
 
+    event.preventDefault(); // Prevent default form submission behavior (if applicable)
     if (!input.trim()) return;
   
-    setInput(event.target.value);
+    //setInput(event.target.value);
 
-    const timestamp = new Date().toISOString().slice(0, 19); // Format: "YYYY-MM-DDTHH:mm:ss"
-
+    //const timestamp = new Date().toISOString().slice(0, 19); // Format: "YYYY-MM-DDTHH:mm:ss"
     
     try{
-      axios.post("http://localhost:8080/api/messages/send", {userName: userName, message:input, timeStamp: timestamp});
-      setMessages([...messages, {userName,input,timestamp}]);
-      /*setInput("");*/
+      const response = await axios.post("http://localhost:8080/api/messages/send", {userName: userName, message:input, timeStamp: new Date().toISOString().slice(0, 19)});
+      setMessages([...messages, {userName:userName,message:input,timeStamp: response.data.timeStamp}]);
+      //setInput("");
     }
     catch(error){
       console.error("Error sending message:", error);
@@ -52,9 +56,9 @@ const Chat = ({userName}) => {
             </div>
           </div>
         ))*/}
-        {messages.map((msg) => (
+        {messages.map((msg, index) => (
           (
-            <div  className='message' >
+            <div key={msg.timeStamp || index} className='message' >
               <strong>{msg.userName}:</strong> {msg.message} <br />
               
             </div>
@@ -66,7 +70,7 @@ const Chat = ({userName}) => {
         <input
           type="text"
           /*value={input}*/
-          onChange={postInput}
+          onChange={handleInput}
           placeholder="Type a message..."
           style={{ width: '80%', padding: '10px', marginRight: '10px' }}
         />
