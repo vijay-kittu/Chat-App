@@ -15,7 +15,7 @@ public class Message {
     private Integer id;
 
     @Column(name="username")
-    private String userName;
+    private String username;
 
     @Column(name = "timestamp", nullable = false, updatable = false)
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -28,8 +28,8 @@ public class Message {
 
     }
 
-    public Message( String userName, LocalDateTime timeStamp, String message) {
-        this.userName = userName;
+    public Message( String username, LocalDateTime timeStamp, String message) {
+        this.username = username;
         this.timeStamp = timeStamp;
         this.message = message;
     }
@@ -42,12 +42,12 @@ public class Message {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public LocalDateTime getTimeStamp() {
@@ -70,7 +70,7 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", timeStamp=" + timeStamp +
                 ", message='" + message + '\'' +
                 '}';

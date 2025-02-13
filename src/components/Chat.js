@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from './AuthContext';
 
 
-const Chat = ({userName}) => {
+const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const {user} = useContext(AuthContext);
   
   const fetchMessages = async() => {
     try{
@@ -30,8 +32,8 @@ const Chat = ({userName}) => {
     //const timestamp = new Date().toISOString().slice(0, 19); // Format: "YYYY-MM-DDTHH:mm:ss"
     
     try{
-      const response = await axios.post("http://localhost:8080/api/messages/send", {userName: userName, message:input, timeStamp: new Date().toISOString().slice(0, 19)});
-      setMessages([...messages, {userName:userName,message:input,timeStamp: response.data.timeStamp}]);
+      const response = await axios.post("http://localhost:8080/api/messages/send", {username: user.userName, message:input, timeStamp: new Date().toISOString().slice(0, 19)});
+      setMessages([...messages, {username:user.userName,message:input,timeStamp: response.data.timeStamp}]);
       //setInput("");
     }
     catch(error){
@@ -59,7 +61,7 @@ const Chat = ({userName}) => {
         {messages.map((msg, index) => (
           (
             <div key={msg.timeStamp || index} className='message' >
-              <strong>{msg.userName}:</strong> {msg.message} <br />
+              <strong>{msg.username}:</strong> {msg.message} <br />
               
             </div>
           )
