@@ -62,7 +62,7 @@ const Chat = () => {
           (
             <div key={msg.timeStamp || index} className='message' >
               <strong>{msg.username}:</strong> {msg.message} <br />
-              
+              <div>{msg.timeStamp}</div>
             </div>
           )
         ))}

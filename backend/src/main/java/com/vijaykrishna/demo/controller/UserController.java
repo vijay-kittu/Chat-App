@@ -19,10 +19,9 @@ public class UserController {
 
     @PostMapping("/register")
     public User registerUser(@Valid @RequestBody User user) {
-        {
-            User dbUser = userRepository.save(user);
-            return dbUser;
-        }
+
+        User dbUser = userRepository.save(user);
+        return dbUser;
     }
 
     @PostMapping("/login")
