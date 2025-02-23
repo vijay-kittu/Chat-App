@@ -61,8 +61,8 @@ const Chat = () => {
         {messages.map((msg, index) => (
           (
             <div key={msg.timeStamp || index} className='message' >
-              <strong>{msg.username}:</strong> {msg.message} <br />
-              <div>{msg.timeStamp}</div>
+              <div><strong>{msg.username}:</strong> {msg.message} <br /></div>
+              <div className='timestamp'>{msg.timeStamp}</div>
             </div>
           )
         ))}

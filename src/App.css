@@ -95,3 +95,11 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+

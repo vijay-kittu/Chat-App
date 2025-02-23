@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import Chat from './Chat';
+import { Link } from 'react-router-dom';
 import PrivateChat from './PrivateChat';
 import Contact from './Contact';
 import Navbar from './Navbar';
@@ -10,7 +11,14 @@ const Home = () => {
   const {user} = useContext(AuthContext);
 
   if(!user){
-    return <h2>Please login to continue.</h2>
+    return(
+      <div>
+        <h2>Please</h2>
+        <Link to="/login">login</Link>
+        <h2>to continue.</h2>
+      </div>
+      
+    ) ;
   }
 
   return(
