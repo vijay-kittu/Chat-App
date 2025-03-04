@@ -1,6 +1,6 @@
 body {
-  text-align: left;
-  background-color: ivory;
+  /*text-align: left;*/
+  background-color: black;
   font-family: 'Press Start 2P', Arial, sans-serif;
 }
 
@@ -20,16 +20,104 @@ body {
   color: white;
 }
 
+.bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact {
+  display: flex;
+  flex-direction:column;
+  flex: 1 1 150px;
+  max-width: 100%;
+  min-width: 100px;
+  min-height: 350px;
+  margin-top: 20px;
+}
+
+.general_chat {
+  flex: 1 1 400px;
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 350px;
+  border-width: 5px;
+  border-color: black;
+  border-style:ridge;
+}
+
 .head{
   display: flex;
   flex-direction: column;
   background-color: #F0E2C1;
 }
 
+.header {
+  position: fixed;
+  z-index: 2;
+  background-color: aliceblue;
+  width: 100%;
+
+}
+
+.homepage_distribution {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login {
+  translate: 0 100px;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.login input {
+  height: 20px;
+  display: block;
+  margin-bottom: 10px;
+  border-color: aliceblue;
+  background-color: #282c34;
+  color: white;
+}
+
+.login button {
+  display: block;
+  height: 40px;
+  width: 170px;
+  background-color: azure;
+  font-size: larger;
+}
+
+.message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .navbar {
   
   display: flex;
   background-color: #F0E2C1;
+}
+
+.private_chat {
+  flex: 1 1 400px;
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 350px;
+  border-width: 5px;
+  border-color: black;
+  border-style:ridge;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
 }
 
 .section {
@@ -47,59 +135,9 @@ body {
   border-style:double;
 }
 
-.homepage_distribution {
-  display: flex;
-  flex-wrap: wrap;
-}
 
-.general_chat {
-  flex: 1 1 400px;
-  max-width: 100%;
-  min-width: 300px;
-  min-height: 350px;
-  border-width: 5px;
-  border-color: black;
-  border-style:ridge;
-}
 
-.private_chat {
-  flex: 1 1 400px;
-  max-width: 100%;
-  min-width: 300px;
-  min-height: 350px;
-  border-width: 5px;
-  border-color: black;
-  border-style:ridge;
-}
 
-.login {
-  display: flex;
-  flex-direction: column;
-}
-.register {
-  display: flex;
-  flex-direction: column;
-}
 
-.contact {
-  display: flex;
-  flex-direction:column;
-  flex: 1 1 150px;
-  max-width: 100%;
-  min-width: 100px;
-  min-height: 350px;
-  margin-top: 20px;
-}
-
-.bottom {
-  display: flex;
-  flex-direction: row;
-}
-
-.message {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 

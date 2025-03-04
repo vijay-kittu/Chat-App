@@ -1,25 +1,26 @@
-import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; 
-import Contact from './Contact';
-import axios from 'axios';
-import { useAuth } from './AuthContext'; 
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Contact from "./Contact";
+import axios from "axios";
+import { useAuth } from "./AuthContext";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
-    userName:"",
-    password:""
+    userName: "",
+    password: "",
   });
   const [loginMessage, setLoginMessage] = useState("");
   const navigate = useNavigate();
-  const {login} = useAuth();
+  const { login } = useAuth();
 
-  const checkUserExists = async() => {
-    try{
-      const response = await axios.get("http://localhost:8080/api/users/get/{loginData.userName}");
+  const checkUserExists = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/api/users/get/{loginData.userName}"
+      );
       return response.data;
-    }
-    catch(error){
-      console.error("Incorrect username or password.Try again.",error);
+    } catch (error) {
+      console.error("Incorrect username or password.Try again.", error);
       return false;
     }
   };
@@ -28,17 +29,20 @@ const Login = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  const handleLogin = async(event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     setLoginMessage("");
 
-    if(!checkUserExists()){
+    if (!checkUserExists()) {
       setLoginMessage("Username does not exist.");
       return;
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/users/login", loginData);
+      const response = await axios.post(
+        "http://localhost:8080/api/users/login",
+        loginData
+      );
       if (response.status === 200) {
         login({ userName: loginData.userName });
         setLoginMessage("Login successful!");
@@ -46,15 +50,13 @@ const Login = () => {
           navigate("/redirecting");
         }, 500);
       }
-    }
-    catch (error) {
+    } catch (error) {
       setLoginMessage("Invalid username or password.");
     }
-  
-  }
+  };
 
   return (
-    <div>
+    <div className="login">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -78,9 +80,8 @@ const Login = () => {
       {loginMessage && <p style={{ color: "red" }}>{loginMessage}</p>}
       <Link to="/register">Don't have an account? Register here!</Link>
       <Contact />
-    </div>   
+    </div>
   );
-  
-}
+};
 
 export default Login;
