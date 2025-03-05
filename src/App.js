@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
+  Link,
 } from "react-router-dom";
 import { AuthProvider } from "./components/AuthContext";
 import Home from "./components/Home";
+import Header from "./components/Header";
 import Chat from "./components/Chat";
 import PrivateChat from "./components/PrivateChat";
 import Register from "./components/Register";
@@ -18,10 +21,8 @@ import "./App.css";
 function App() {
   return (
     <AuthProvider>
-      <div>
-        <div className="header">
-          <h2>HyThere</h2>
-        </div>
+      <div className="App">
+        <Header />
         <Router>
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
@@ -33,6 +34,7 @@ function App() {
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
+        <div className="end-note">This website is under development.</div>
       </div>
     </AuthProvider>
   );

@@ -78,8 +78,9 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       {loginMessage && <p style={{ color: "red" }}>{loginMessage}</p>}
+      <br />
       <Link to="/register">Don't have an account? Register here!</Link>
-      <Contact />
+      {/*<Contact />*/}
     </div>
   );
 };

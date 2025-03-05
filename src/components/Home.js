@@ -1,17 +1,23 @@
 import React, { useContext } from "react";
 import Chat from "./Chat";
-import { Link } from "react-router-dom";
-import PrivateChat from "./PrivateChat";
+import { Link, useNavigate } from "react-router-dom";
 import Contact from "./Contact";
-import Navbar from "./Navbar";
 import { AuthContext } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   if (!user) {
     return (
-      <div>
+      <div className="login-to-continue">
         <h2>Please</h2>
         <Link to="/login">login</Link>
         <h2>to continue.</h2>
@@ -21,16 +27,17 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="head">
-        <h2>Hythere!</h2>
-      </div>
       <h3>Welcome to Chat App, {user.userName}</h3>
-      <Navbar />
+      {/*<Navbar />*/}
       <div className="homepage_distribution">
         <Chat />
-        <PrivateChat />
+        {/*<PrivateChat />*/}
       </div>
-      <Contact />
+      <br></br>
+      <button className="logout-button" onClick={handleLogout}>
+        Log Out
+      </button>
+      {/*<Contact />*/}
     </div>
   );
 };
