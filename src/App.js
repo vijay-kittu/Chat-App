@@ -27,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/header" element={<Header />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/private-chat/:userId" element={<PrivateChat />} />
             <Route path="/register" element={<Register />} />

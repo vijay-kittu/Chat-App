@@ -27,7 +27,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h3>Welcome to Chat App, {user.userName}</h3>
       {/*<Navbar />*/}
       <div className="homepage_distribution">
         <Chat />

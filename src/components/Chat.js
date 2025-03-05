@@ -59,16 +59,8 @@ const Chat = () => {
 
   return (
     <div className="general_chat">
-      <h1>General Chat Room</h1>
-      <div
-        className="chat-box"
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-          height: "400px",
-          overflowY: "scroll",
-        }}
-      >
+      <h3>General Chat Room</h3>
+      <div className="chat-box">
         {/*messages.map((msg, index) => (
           <div key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <img src={msg.avatar} alt={`${msg.name}'s avatar`} style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
