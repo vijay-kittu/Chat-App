@@ -26,10 +26,6 @@ const Chat = () => {
     event.preventDefault(); // Prevent default form submission behavior (if applicable)
     if (!input.trim()) return;
 
-    //setInput(event.target.value);
-
-    //const timestamp = new Date().toISOString().slice(0, 19); // Format: "YYYY-MM-DDTHH:mm:ss"
-
     try {
       const response = await axios.post(
         "http://localhost:8080/api/messages/send",
@@ -61,23 +57,6 @@ const Chat = () => {
     <div className="general_chat">
       <h3>General Chat Room</h3>
       <div className="chat-box">
-        {/*messages.map((msg, index) => (
-          <div key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
-            <img src={msg.avatar} alt={`${msg.name}'s avatar`} style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
-            <div>
-              <strong>{msg.name}</strong>
-              <p>{msg.text}</p>
-            </div>
-          </div>
-        ))*/}
-        {/*messages.map((msg, index) => (
-          <div key={msg.timeStamp || index} className="message">
-            <div>
-              <strong>{msg.username}:</strong> {msg.message} <br />
-            </div>
-            <div className="timestamp">{msg.timeStamp}</div>
-          </div>
-        ))*/}
         {messages.map((msg, index) => {
           const timestamp = new Date(msg.timeStamp);
 

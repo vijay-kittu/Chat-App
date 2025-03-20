@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@100..900&display=swap');
+
 body {
   /*text-align: left;*/
   background-color: black;
   color: white;
-  font-family: 'Press Start 2P', Arial, sans-serif;
+  font-family: "Nunito", Arial, sans-serif;
 }
 
 .App-logo {
@@ -58,6 +60,7 @@ body {
 
 .chat-input input:hover {
   background-color: white;
+  color:#000;
 }
 
 .contact {
