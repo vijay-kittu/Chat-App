@@ -4,8 +4,8 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [friend, setFriend] = useState([{ userName: "", firstName: "" }]);
-  const [request, setRequest] = useState([{ userName: "" }]);
+  const [friend, setFriend] = useState([]);
+  const [request, setRequest] = useState([]);
 
   const login = (userData) => {
     setUser(userData);

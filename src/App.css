@@ -87,10 +87,24 @@ body {
   text-align: center;
 }
 
+.friends-list {
+  width: 320px;
+  overflow-y: scroll;
+}
+
+.friends-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friends-list-heading button {
+  height: fit-content;
+  margin-right: 10px;
+}
+
 .general_chat {
-  flex: 1 1 200px;
-  max-width: 100%;
-  min-width: 300px;
+  margin-right: 10px;
   min-height: 250px;
   border-width: 5px;
   border-color: white;
@@ -136,6 +150,20 @@ body {
 
 .home {
   margin-top: 70px;
+  width: 100%;
+}
+
+.homepage_distribution {
+  display: flex;
+  justify-content: stretch;
+}
+
+.left {
+  flex: 0;
+}
+
+.right {
+  flex: 1;
 }
 
 .logout-button {
@@ -153,11 +181,6 @@ body {
   cursor: pointer;
   background-color: red;
   color: white;
-}
-
-.homepage_distribution {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .login {
@@ -224,7 +247,7 @@ body {
   display: flex;
   background-color: #F0E2C1;
 }
-
+/*
 .private_chat {
   flex: 1 1 400px;
   max-width: 100%;
@@ -233,7 +256,7 @@ body {
   border-width: 5px;
   border-color: white;
   border-style:ridge;
-}
+}*/
 
 .register {
   display: flex;
@@ -279,6 +302,22 @@ body {
 .register h2 {
   margin-top: -50px;
   text-align: center;
+}
+
+.requests-list {
+  width: 300px;
+  height:
+}
+
+.requests-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.requests-list-heading button {
+  height: fit-content;
+  margin-right: 20px;
 }
 
 .section {

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Contact from "./Contact";
 import { AuthContext } from "./AuthContext";
 import { useAuth } from "./AuthContext";
+import FriendsList from "./FriendsList";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -29,8 +30,12 @@ const Home = () => {
     <div className="home">
       {/*<Navbar />*/}
       <div className="homepage_distribution">
-        <Chat />
-        {/*<PrivateChat />*/}
+        <div className="left">
+          <FriendsList />
+        </div>
+        <div className="right">
+          <Chat />
+        </div>
       </div>
       <br></br>
       <button className="logout-button" onClick={handleLogout}>

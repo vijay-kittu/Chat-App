@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 
-const RequestsList = () => {
+export const RequestsList = ({ goBack = () => {} }) => {
   const { request } = useContext(AuthContext);
 
   return (
-    <div>
-      <h3>Requests for You</h3>
-      {!friend ? (
+    <div className="requests-list">
+      <div className="requests-list-heading">
+        <h3>Requests for You</h3>
+        <button onClick={goBack}>Friends</button>
+      </div>
+
+      {request.length === 0 ? (
         <p>No Requests Received</p>
       ) : (
         request.map((item, index) => (
@@ -22,3 +26,5 @@ const RequestsList = () => {
     </div>
   );
 };
+
+export default RequestsList;
