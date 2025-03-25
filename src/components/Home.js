@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Chat from "./Chat";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-import { useAuth } from "./AuthContext";
 import FriendsList from "./FriendsList";
 
 const Home = () => {

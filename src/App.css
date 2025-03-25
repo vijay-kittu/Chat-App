@@ -194,6 +194,7 @@ body {
   background-color: red;
   color: black;
   align-self: center;
+  margin: 0px 35px;
 }
 
 .logout-buttons:hover {
@@ -362,7 +363,9 @@ body {
 }
 
 .space-block {
-  width: 50%;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 }
 
 .timestamp {
