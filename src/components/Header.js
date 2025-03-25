@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const { user } = useContext(AuthContext);
   const { logout } = useAuth();
+
   const navigate = useNavigate();
 
   const handleLogout = () => {

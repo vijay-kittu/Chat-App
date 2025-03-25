@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -16,7 +17,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, friend, request }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        friend,
+        /*setFriend,*/ request /*, setRequest*/,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

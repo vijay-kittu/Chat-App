@@ -1,13 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
+import axios from "axios";
 
 export const RequestsList = ({ goBack = () => {} }) => {
-  const { request } = useContext(AuthContext);
+  const { request /*, setRequest*/ } = useContext(AuthContext);
+
+  /*const fetchRequests = async () => {
+    try {
+      const requestResponse = await axios.get("");
+      setRequest(requestResponse.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchRequests(); // 👈 Fetch messages when the component mounts
+  }, []);*/
 
   return (
     <div className="requests-list">
       <div className="requests-list-heading">
-        <h3>Requests for You</h3>
+        <h3 title="Requests">Requests for You</h3>
         <button onClick={goBack}>Friends</button>
       </div>
 

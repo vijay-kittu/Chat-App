@@ -1,10 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import RequestsList from "./RequestsList";
+import axios from "axios";
 
 const FriendsList = () => {
-  const { friend } = useContext(AuthContext);
+  const { friend, setFriend } = useContext(AuthContext);
   const [showRequests, setShowRequests] = useState(false);
+
+  const fetchFriends = async () => {
+    try {
+      const friendResponse = await axios.get("");
+      setFriend(friendResponse.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchFriends(); // 👈 Fetch messages when the component mounts
+  }, []);
 
   return (
     <div className="friends-list">

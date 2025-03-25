@@ -50,7 +50,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    fetchMessages(); // 👈 Fetch messages when the component mounts
+    fetchMessages();
   }, []);
 
   return (
