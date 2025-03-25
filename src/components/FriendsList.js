@@ -37,7 +37,7 @@ const FriendsList = () => {
             <button onClick={() => setShowRequests(true)}>Requests</button>
           </div>
           {friend.length === 0 ? (
-            <p>Your Friends List is empty</p>
+            <p className="empty-message">Your Friends List is empty</p>
           ) : (
             friend.map((item, index) => (
               <div key={index} className="friend">

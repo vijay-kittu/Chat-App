@@ -12,7 +12,7 @@ export const RequestsList = ({ goBack = () => {} }) => {
       </div>
 
       {request.length === 0 ? (
-        <p>No Requests Received</p>
+        <p className="empty-message">No Requests Received</p>
       ) : (
         request.map((item, index) => (
           <div key={index} className="request">

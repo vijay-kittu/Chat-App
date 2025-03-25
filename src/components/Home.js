@@ -32,15 +32,18 @@ const Home = () => {
       <div className="homepage_distribution">
         <div className="left">
           <FriendsList />
+          {/*<button className="logout-button" onClick={handleLogout}>
+            Log Out
+          </button>*/}
         </div>
         <div className="right">
           <Chat />
         </div>
       </div>
-      <br></br>
-      <button className="logout-button" onClick={handleLogout}>
+
+      {/*<button className="logout-button" onClick={handleLogout}>
         Log Out
-      </button>
+      </button>*/}
       {/*<Contact />*/}
     </div>
   );
