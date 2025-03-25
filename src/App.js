@@ -7,6 +7,7 @@ import {
   Route,
   Navigate,
   Link,
+  BrowserRouter,
 } from "react-router-dom";
 import { AuthProvider } from "./components/AuthContext";
 import Home from "./components/Home";
@@ -24,8 +25,8 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Header />
-        <Router>
+        <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home" element={<Home />} />
@@ -38,7 +39,7 @@ function App() {
             <Route path="/friends-list" element={<FriendsList />} />
             <Route path="/requests-list" element={<RequestsList />} />
           </Routes>
-        </Router>
+        </BrowserRouter>
         <div className="end-note">This website is under development.</div>
       </div>
     </AuthProvider>

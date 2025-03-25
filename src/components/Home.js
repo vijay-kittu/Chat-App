@@ -1,20 +1,12 @@
 import React, { useContext } from "react";
 import Chat from "./Chat";
 import { Link, useNavigate } from "react-router-dom";
-import Contact from "./Contact";
 import { AuthContext } from "./AuthContext";
 import { useAuth } from "./AuthContext";
 import FriendsList from "./FriendsList";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
-  const { logout } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
 
   if (!user) {
     return (
@@ -40,11 +32,6 @@ const Home = () => {
           <Chat />
         </div>
       </div>
-
-      {/*<button className="logout-button" onClick={handleLogout}>
-        Log Out
-      </button>*/}
-      {/*<Contact />*/}
     </div>
   );
 };
