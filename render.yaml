@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: spring-boot-backend
+    runtime: docker
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xmx512m"
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/*.jar"
+    plan: free
