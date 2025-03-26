@@ -40,7 +40,6 @@ function App() {
             <Route path="/requests-list" element={<RequestsList />} />
           </Routes>
         </BrowserRouter>
-        <div className="end-note">This website is under development.</div>
       </div>
     </AuthProvider>
   );

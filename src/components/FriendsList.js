@@ -61,6 +61,7 @@ const FriendsList = () => {
           )}
         </div>
       )}
+      <div className="end-note">This part of website is under development.</div>
     </div>
   );
 };
