@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "./AuthContext";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -9,9 +10,7 @@ const Chat = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8080/api/messages/get"
-      );
+      const response = await axios.get(`${API_BASE_URL}/api/messages/get`);
       setMessages(response.data);
     } catch (error) {
       console.error("Error fetching messages: ", error);
@@ -27,14 +26,11 @@ const Chat = () => {
     if (!input.trim()) return;
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/messages/send",
-        {
-          username: user.userName,
-          message: input,
-          timeStamp: new Date().toISOString().slice(0, 19),
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/messages/send`, {
+        username: user.userName,
+        message: input,
+        timeStamp: new Date().toISOString().slice(0, 19),
+      });
       setMessages([
         ...messages,
         {

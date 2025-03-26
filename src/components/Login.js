@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -15,7 +16,7 @@ const Login = () => {
   const checkUserExists = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/users/get/{loginData.userName}"
+        `${API_BASE_URL}/api/users/get/{loginData.userName}`
       );
       return response.data;
     } catch (error) {
@@ -39,7 +40,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/users/login",
+        `${API_BASE_URL}/api/users/login`,
         loginData
       );
       if (response.status === 200) {

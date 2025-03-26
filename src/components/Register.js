@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Redirecting from "./Redirecting";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/users/register",
+        `${API_BASE_URL}/api/users/register`,
         formData
       );
 
