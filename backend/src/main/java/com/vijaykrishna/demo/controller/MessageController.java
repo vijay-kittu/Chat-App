@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/messages")
-@CrossOrigin(origins={"http://localhost:3000", "https://hythere.vercel.app/"})
+@CrossOrigin(origins={"http://localhost:3000", "https://hythere.vercel.app"})
 public class MessageController {
 
     @Autowired
