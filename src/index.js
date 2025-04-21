@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./components/AuthContext";
 
@@ -12,13 +11,11 @@ const CLIENT_ID =
   "705513059089-flbl0p9ssdj1pqold04ja8pmduv6anof.apps.googleusercontent.com";
 root.render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId={CLIENT_ID}>
-      <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </BrowserRouter>
-    </GoogleOAuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
