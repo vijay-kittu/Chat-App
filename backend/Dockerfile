@@ -7,6 +7,6 @@ RUN ./mvnw clean package
 RUN rm -f target/*.original
 
 # Get the actual jar file and rename it
-RUN mv target/*.jar target/app.jar  
+RUN mv target/demo-0.0.1-SNAPSHOT.jar target/app.jar  
 
 CMD ["java", "-jar", "target/app.jar"]  # Run the correct JAR file
