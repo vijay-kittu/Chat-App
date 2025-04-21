@@ -22,8 +22,8 @@ const Home = () => {
       {/*<Navbar />*/}
       <div className="homepage_distribution">
         <div className="left">
-          <FriendsList />
-          {/*<button className="logout-button" onClick={handleLogout}>
+          {/*<FriendsList />
+          <button className="logout-button" onClick={handleLogout}>
             Log Out
           </button>*/}
         </div>

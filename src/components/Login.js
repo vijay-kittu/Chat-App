@@ -48,7 +48,7 @@ const Login = () => {
         login({ userName: loginData.userName });
         setLoginMessage("Login successful!");
         setTimeout(() => {
-          navigate("/home");
+          navigate("/redirecting");
         }, 500);
       }
     } catch (error) {
