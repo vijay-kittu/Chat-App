@@ -23,7 +23,9 @@ export const AuthProvider = ({ children }) => {
         login,
         logout,
         friend,
-        /*setFriend,*/ request /*, setRequest*/,
+        setFriend,
+        request,
+        setRequest,
       }}
     >
       {children}

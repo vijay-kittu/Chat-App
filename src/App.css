@@ -173,6 +173,9 @@ body {
   flex-direction: column;
 }
 
+.login form input {
+  color: white;
+}
 
 .logout-button {
   border-radius: 10px;
@@ -316,7 +319,7 @@ body {
   width:70%;
   margin: 10px;
   background-color: #000;
-  color: black;
+  color: white;
 }
 
 .register form input:hover {

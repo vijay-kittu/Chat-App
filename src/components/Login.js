@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Login = () => {
@@ -55,6 +57,33 @@ const Login = () => {
     }
   };
 
+  const handleLoginViaGmail = async (googleCredential) => {
+    setLoginMessage("");
+
+    if (!checkUserExists()) {
+      setLoginMessage("Username does not exist.");
+      return;
+    }
+    const credential = jwtDecode(googleCredential.credential);
+    const username = credential.name;
+    const password = credential.sub;
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/users/login`, {
+        userName: username,
+        password: password,
+      });
+      if (response.status === 200) {
+        login({ userName: username });
+        setLoginMessage("Login successful!");
+        setTimeout(() => {
+          navigate("/redirecting");
+        }, 500);
+      }
+    } catch (error) {
+      setLoginMessage("Invalid username or password.");
+    }
+  };
+
   return (
     <div className="login">
       <h2>Login</h2>
@@ -80,6 +109,14 @@ const Login = () => {
       {loginMessage && <p style={{ color: "red" }}>{loginMessage}</p>}
       <br />
       <Link to="/register">Don't have an account? Register here!</Link>
+      <br></br>
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          console.log(jwtDecode(credentialResponse.credential));
+          handleLoginViaGmail(credentialResponse);
+        }}
+        onError={() => console.log("Login Failed!")}
+      />
       {/*<Contact />*/}
     </div>
   );
