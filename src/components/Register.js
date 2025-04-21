@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Redirecting from "./Redirecting";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Register = () => {
@@ -97,6 +98,7 @@ const Register = () => {
         />
         <button type="submit">Register</button>
       </form>
+
       {registerMessage && (
         <p
           style={{
