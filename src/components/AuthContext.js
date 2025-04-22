@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [friend, setFriend] = useState([]);
+  const [friend, setFriend] = useState([{ firstName: "" }]);
   const [request, setRequest] = useState([]);
 
   const login = (userData) => {
