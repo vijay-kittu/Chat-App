@@ -48,7 +48,7 @@ const FriendsList = () => {
             <h3>Your Friends</h3>
             <button onClick={() => setShowRequests(true)}>Requests</button>
           </div>
-          {friend.length === 0 ? (
+          {!friend || friend.length === 0 ? (
             <p className="empty-message">Your Friends List is empty</p>
           ) : (
             friend.map((item, index) => (
