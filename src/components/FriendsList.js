@@ -9,9 +9,11 @@ const FriendsList = () => {
 
   const fetchFriends = async () => {
     try {
-      const friendResponse = await axios.get("");
-      setFriend(friendResponse.data);
-    } catch (error) {}
+      //const friendResponse = await axios.get("");
+      setFriend(/*friendResponse.data*/ null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
